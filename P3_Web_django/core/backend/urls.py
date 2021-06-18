@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import base
+from django.contrib import admin
+from django.urls import path, include
+from .views import base, signin, signup, hardware
 
 urlpatterns = [
-    path('', base,name = 'base'),
+    path('', base, name = 'base'),
+    path('signin', signin, name = 'signin'),
+    path('signup', signup, name = 'signup'),
+    path('hardware', hardware, name = 'hardware')
 ]

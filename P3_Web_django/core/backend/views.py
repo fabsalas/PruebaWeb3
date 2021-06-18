@@ -4,16 +4,17 @@ from django.shortcuts import render
 
 def base(request):
 
-    return render(request, 'backend/Base.html')
+    return render(request, 'base.html', {})
 
 def signin(request):
 
-    return render(request, 'backend/Signin.html')
+    return render(request, 'signin.html',{})
 
 def signup(request):
 
-    return render(request, 'backend/Signup.html')
+    return render(request, 'signup.html',{})
 
-def inicio(request):
+def hardware(request):
 
-    return render(request, 'backend/Inicio.html')
+    return render(request, 'hardware.html')
+
