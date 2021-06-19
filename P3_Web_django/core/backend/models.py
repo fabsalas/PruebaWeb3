@@ -18,3 +18,6 @@ class Producto(models.Model):
     fabricante  = models.ForeignKey(Fabricante, on_delete=models.CASCADE, null=True, blank=True)
     componente  = models.ForeignKey(Componente, on_delete=models.CASCADE, null=True, blank=True)
     precio      = models.IntegerField(default=0)
+    stock       = models.IntegerField(default=0)
+    imagen      = models.ImageField(upload_to=0, null=True, blank=True)
+
