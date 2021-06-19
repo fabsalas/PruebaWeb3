@@ -6,10 +6,18 @@ from django.db import models
 class Componente(models.Model):
      id     = models.AutoField(primary_key=True)
      nombre = models.CharField(max_length=99,)
+
+     def __str__(self):
+         return  'Nombre: ' +self.nombre
+         #return  self.nombre
+
 # Tabla Fabricante y sus atributos
 class Fabricante(models.Model):
     id     = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=99,)
+
+    def __str__(self):
+        return self.nombre
     
 # Tabla Producto y sus atributos
 class Producto(models.Model):

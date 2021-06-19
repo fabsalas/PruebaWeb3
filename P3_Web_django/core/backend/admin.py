@@ -1,4 +1,4 @@
-from core.backend.models import Componente, Fabricante, Producto
+from backend.models import Componente, Fabricante, Producto
 from django.contrib import admin
 
 # Register your models here.
