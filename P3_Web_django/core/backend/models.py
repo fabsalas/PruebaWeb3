@@ -27,5 +27,12 @@ class Producto(models.Model):
     componente  = models.ForeignKey(Componente, on_delete=models.CASCADE, null=True, blank=True)
     precio      = models.IntegerField(default=0)
     stock       = models.IntegerField(default=0)
-    imagen      = models.ImageField(upload_to=0, null=True, blank=True)
+
+    def ruta_imagen(self,  filename):
+        return f'Productos/ {self.id}/{filename}'
+
+    imagen      = models.ImageField(upload_to=ruta_imagen, null=True, blank=True)
+
+    def __str__(self):
+        return self.nombre
 
