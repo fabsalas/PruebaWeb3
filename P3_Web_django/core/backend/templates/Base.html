@@ -14,15 +14,13 @@
     
 </head>
 <body>
-  <!--Para hacer la conexión a las otras files -->
-    <a href="{% url 'signin' %}">ir </a>
 
    <div class="container">
        <div class="row">
            <div class="col-2"></div>
             <div class="col-8">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-                    <img src="../static/img/img-proyecto/pc-logo.jpg" style="border-radius: 50%; padding: 1%;" >
+                    <img src="../static/img/img-proyecto/pc-logo.jpg" style="border-radius: 50%; padding: 1%; width:6%" >
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -45,8 +43,12 @@
                               <li><a class="dropdown-item" href="#">SDD</a></li>
                               <li><a class="dropdown-item" href="#">M2</a></li>
                             </ul>
-                      
-                      </ul>
+                            <li class="nav-item active" style="padding-left: 259%;">
+                              <a class="nav-link" href="{% url 'signin'%}" style="color: green">Signin <span class="sr-only"></span></a>
+                            </li>
+                            
+                      </ul>                     
+                  
                     </div>
                   </nav>
 
