@@ -130,8 +130,8 @@
                                     <select class="form-select" >
                                         <label for="fabricantes" class="form-label">Fabricante</label>
                                         <option selected></option>
-                                        {%for ve in fabricantes %}
-                                            <option value="{{ve.id}}">{{ve.nombre}}</option>
+                                        {%for Fabricante in fabricantes %}
+                                            <option value="{{ve.id}}">{{Fabricante.nombre}}</option>
                                        {% endfor %}
                                       </select>
                                 </div>
