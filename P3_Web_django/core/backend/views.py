@@ -1,6 +1,6 @@
 from django.shortcuts import render
 #importamos las clases de los modelos
-from .models import Producto
+from .models import Fabricante, Producto
 
 # Create your views here.
 
@@ -16,9 +16,16 @@ def signin(request):
 
 
 
-def hardware(request):
+def productos(request):
+    productos= Producto.objects.all()
+    contexto = {'productos' : productos}
+    return render(request, 'productos.html',contexto)
 
-    return render(request, 'hardware.html',{})
+def EditarFabricante(request):
+    nombres = Fabricante.objects.all()
+    
+    contexto={'fabricantes': nombres}
+    return render(request, contexto)
 
 
 def mb(request):

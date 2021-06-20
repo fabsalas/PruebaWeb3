@@ -8,8 +8,8 @@ class Componente(models.Model):
      nombre = models.CharField(max_length=99,)
 
      def __str__(self):
-         return  'Nombre: ' +self.nombre
-         #return  self.nombre
+         #return  'Nombre: ' +self.nombre
+         return  self.nombre
 
 # Tabla Fabricante y sus atributos
 class Fabricante(models.Model):
