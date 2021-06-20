@@ -34,14 +34,14 @@
                              Hardware
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(214, 210, 210);">
-                              <li><a class="dropdown-item" href="#">MB</a></li>
-                              <li><a class="dropdown-item" href="#">CPU</a></li>
-                              <li><a class="dropdown-item" href="#">GPU</a></li>
-                              <li><a class="dropdown-item" href="#">PSU</a></li>
-                              <li><a class="dropdown-item" href="#">RAM</a></li>
-                              <li><a class="dropdown-item" href="#">HDD</a></li>
-                              <li><a class="dropdown-item" href="#">SDD</a></li>
-                              <li><a class="dropdown-item" href="#">M2</a></li>
+                              <li><a class="dropdown-item" href="{% url 'mb'%}">MB</a></li>
+                              <li><a class="dropdown-item" href="{%url 'cpu'%}">CPU</a></li>
+                              <li><a class="dropdown-item" href="{%url 'gpu'%}">GPU</a></li>
+                              <li><a class="dropdown-item" href="{%url 'psu'%}">PSU</a></li>
+                              <li><a class="dropdown-item" href="{%url 'ram'%}">RAM</a></li>
+                              <li><a class="dropdown-item" href="{%url 'hdd'%}">HDD</a></li>
+                              <li><a class="dropdown-item" href="{%url 'sdd'%}">SDD</a></li>
+                              <li><a class="dropdown-item" href="{%url 'm2'%}">M2</a></li>
                             </ul>
                             <li class="nav-item active" style="padding-left: 259%;">
                               <a class="nav-link" href="{% url 'signin'%}" style="color: green">Signin <span class="sr-only"></span></a>
