@@ -100,7 +100,7 @@
                               <b><label for="clave">Contraseña</label></b>
                               <input type="password" class="form-control" id="clave" placeholder="Contraseña" required>
                               </div>
-                              <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+                              <a href="{% url 'base' %}"><button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button></a>
                               <div style="margin-left: 32%; margin-top: 2%;">
                                   <a href="">¿Olvidaste tu contraseña?</a>
                               </div>
@@ -140,7 +140,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Validar</button>
+                                    <a href="{% url 'base'%}"><button type="submit" class="btn btn-primary">Validar</button></a>
                                   </div>
                                 </div>
                               </div>

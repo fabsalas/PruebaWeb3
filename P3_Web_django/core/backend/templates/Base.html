@@ -14,7 +14,7 @@
     
 </head>
 <body>
-  <a href="{%url 'productos'%}">ir</a>
+  
    <div class="container">
        <div class="row">
            <div class="col-2"></div>
@@ -43,9 +43,13 @@
                               <li><a class="dropdown-item" href="{%url 'sdd'%}">SDD</a></li>
                               <li><a class="dropdown-item" href="{%url 'm2'%}">M2</a></li>
                             </ul>
-                            <li class="nav-item active" style="padding-left: 259%;">
-                              <a class="nav-link" href="{% url 'signin'%}" style="color: green">Signin <span class="sr-only"></span></a>
+                            <li class="nav-item active" class="d-flex justify-content-end"style="padding-left: 185%;">
+                              <a class="nav-link" href="{%url 'productos'%}" style="color: grey;" id="admin">Admin</a>
                             </li>
+                            <li class="nav-item active" style="padding-left: 1%;">
+                              <a class="nav-link" href="{% url 'signin'%}" style="color: green" id="btn-signin">Signin <span class="sr-only"></span></a>
+                            </li>
+                           
                             
                             
                       </ul>                     
@@ -105,6 +109,17 @@
   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+     
+      $("#admin").hide();
+
+      $("#btn-signin").click(function(){
+      event.preventDefault();
+      $("#admin").show();
+      })
+    })
+</script>
 
 {% block script%}
 {% endblock %}
