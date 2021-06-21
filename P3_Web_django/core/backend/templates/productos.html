@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>-->
-
+                <a href="{% url 'fabricantes'%}"><button type="button" class="btn btn-primary btn-mb btn-block" style= "margin-top:2%">Agregar</button></a>
                <table class="table" style="color:white">
                     <thead>
                       <tr>
@@ -86,7 +86,7 @@
                         <th scope="col">Stock</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Opciones</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -101,7 +101,7 @@
                         <td>{{ve.precio}}</td>
                         <td>{{ve.stock}}</td>
                         <td><img src="{{ve.imagen}}"></td>
-                        <td><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal-edit">Editar</button></td>
+                        <a href="{%url 'productos' %}"><td><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal-edit">Editar</button></td></a>
                         <td><button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal-img">Imagen</button></td>
                         <td><button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal-eli">Eliminar</button></td>
                       </tr>
@@ -120,7 +120,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            
+                              
                                 <div class="mb-3">
                                     <label for="nombre" class="form-label">Nombre producto</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
@@ -128,11 +129,10 @@
                                 <div class="mb-3">
                                    
                                     <select class="form-select" >
-                                        <label for="fabricantes" class="form-label">Fabricante</label>
+                                        <label for="fabricante" class="form-label">Fabricante</label>
                                         <option selected></option>
-                                        {%for Fabricante in fabricantes %}
-                                            <option value="{{ve.id}}">{{Fabricante.nombre}}</option>
-                                       {% endfor %}
+                                            
+                                       
                                       </select>
                                 </div>
                             </form>
@@ -195,7 +195,7 @@
 
 
     
-
+   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   
     

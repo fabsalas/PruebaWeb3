@@ -1,12 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 #importamos las clases de los modelos
-from .models import Fabricante, Producto
+from .models import  Componente, Fabricante, Producto
 
 # Create your views here.
 
 def base(request):
     #accediendo al objeto que contiene los datos de la base de datos
     #el metodo all traera todos los datos que estan en la tabla
+    
     contexto = {}
     return render(request, 'base.html', contexto)
 
@@ -21,11 +22,42 @@ def productos(request):
     contexto = {'productos' : productos}
     return render(request, 'productos.html',contexto)
 
-def EditarFabricante(request):
-    nombres = Fabricante.objects.all()
+
+def AgregarProducto(request):
+    agr_producto = Producto.objects.all()
+
+    contexto = {'agr_producto': agr_producto}
+    return render(request, 'productos.html', contexto)
+
+
+def Form_Productos(request):
+    fabricantes = Fabricante.objects.all()
+
+    contexto={'fabricantes': fabricantes}
+    return render(request, 'agregar_prod.html', contexto)
+
+def Form_Productos_1(request):
+    componentes = Componente.objects.all()
+
+    contexto={'componentes': componentes}
+    return render(request, 'agregar_prod.html', contexto)
+
+
+def Guardar_Prod(request):
+    nombre      = request.POST.get('nombre','')
+    fabricantes = request.POST.get('fabricantes','')
+    componentes = request.POST.get('componentes','')
+    precio      = request.POST.get('precio','')
+    stock       = request.POST.get('stock','')
+    imagen      = request.FILES.get('imagen','')
+
+    productos_g= Producto(nombre=nombre, fabricantes =fabricantes, componentes= componentes, precio= precio, stock= stock, imagen= imagen)
+    productos_g.save()
     
-    contexto={'fabricantes': nombres}
-    return render(request, contexto)
+    return redirect(to='productos')
+    
+
+
 
 
 def mb(request):

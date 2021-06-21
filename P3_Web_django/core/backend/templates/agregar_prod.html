@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/estilo.css">
+    <title>Agregar_Prod</title>
+</head>
+<body>
+     <div class="container">
+         <div class="row">
+             <div class="col-2"></div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+                            <img src="../static/img/img-proyecto/pc-logo.jpg" style="border-radius: 50%; padding: 1%; width:6%" >
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'base'%}">Inicio <span class="sr-only"></span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hardware
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(214, 210, 210);">
+                                    <li><a class="dropdown-item" href="{% url 'mb'%}">MB</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'cpu'%}">CPU</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'gpu'%}">GPU</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'psu'%}">PSU</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'ram'%}">RAM</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'hdd'%}">HDD</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'sdd'%}">SDD</a></li>
+                                    <li><a class="dropdown-item" href="{%url 'm2'%}">M2</a></li>
+                                    </ul>
+                                    <li class="nav-item active" style="padding-left: 259%;">
+                                    <a class="nav-link" href="{% url 'signin'%}" style="color: green">Signin <span class="sr-only"></span></a>
+                                    </li>
+                                    
+                                    
+                                </ul> 
+                            </div>
+                    </nav>
+                                    
+                            <!--formulario-->
+                      
+                                <form action="{% url 'guardar'%}" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <br/>
+
+                                    <div class="mb-3">
+                                      <label for="nombre" class="form-label" style="color: white">Nombre producto</label>
+
+                                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresar nombre de producto" required>
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fabricantes" class="form-label" style="color: white">Nombre Fabricante</label>
+                                        <select class="form-select" id="fabricantes" name="fabricantes">                                         
+                                            <option selected></option>
+                                            {%for Fabricante in fabricantes %}
+                                                <option value="{{Fabricante.id}}">{{Fabricante.nombre}}</option>
+                                            {%endfor %}                                           
+                                       </select>
+                                    </div>
+
+                                      <div class="mb-3">
+                                            <label for="componentes" class="form-label" style="color: white">Nombre Componente</label>
+                                            <select class="form-select" id="componentes" name="componentes">                                         
+                                                <option selected></option>
+                                                {%for Componente in componentes %}
+                                                    <option value="{{Componente.id}}">{{Componente.nombre}}</option>
+                                                {%endfor %}                                           
+                                            </select>
+                                        </div>
+
+                                    <div class="mb-3">
+                                        <label for="precio" class="form-label" style="color: white">Precio</label>
+                                        <input type="number" class="form-control" id="precio" name="precio" required>  
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="stock" class="form-label" style="color: white">Stock</label>
+                                        <input type="number" class="form-control" id="stock" name="stock" required>  
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="imagen" class="form-label" style="color: white">Imagen</label>
+                                        <input class="form-control form-control-sm" id="imagen" name="imagen"type="file">
+                                      </div>
+                                    
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-success" name="GuardarProducto">Guardar</button>
+                                    </div>
+                            
+                                
+                                
+                                </form>
+                            </div>  
+                           
+                        </div>
+                    
+                </div>
+                <div class="col-2"></div>
+
+
+                <!--formulario-->
+                <div class="container">
+                    <br/>
+                    <div class="row">
+                        <p>{{agr_producto}}</p>
+                    </div>
+                </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            
+            
+        
+</body>
+</html>
